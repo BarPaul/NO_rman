@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="business">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.13/dist/full.min.css" rel="stylesheet" type="text/css" /> 
+    <link rel="icon" href="{% static 'favicon.ico' %}" />
+    <!-- <link rel="stylesheet" href="{% static 'css/index.min.css' %}"> -->
+    <title>{% block head %}Главная{% endblock %}</title>
+</head>
+<body class="flex flex-col h-screen">
+    <header class="navbar bg-neutral">
+        {% block header %}{% endblock %}
+        <div class="flex-1">
+            <img class="btn btn-circle btn-ghost no-animation" src="{% static 'images/no_rman.png' %}" alt='Лого НО "РМАН"'>
+            <a class="btn btn-ghost text-xl no-animation" href="{% url 'index' %}">НО "РМАН"</a>
+        </div>
+        <div class="flex-2">
+            <ul class="menu menu-horizontal w-full gap-x-5 justify-end">
+                <a class="btn btn-link text-accent" href="{% url 'index' %}">Новости</a>
+                <a class="btn btn-link text-accent" href="{% url 'nindex' %}">Олимпиады и конкурсы</a>
+                <a class="btn btn-link text-accent" href="{% url 'nindex' %}">Поступить</a>
+            </ul>
+        </div>
+        <div class="flex-1">
+            <ul class="menu menu-horizontal w-full gap-x-5 justify-end">
+                <li><a class="btn btn-outline btn-primary text-lg" href="{% url 'index' %}">Регистрация</a></li>
+                <li><a class="btn btn-outline btn-accent text-lg" href="{% url 'nindex' %}">Вход</a></li>
+            </ul>
+        </div>
+    </header>
+    <main class="flex-grow">
+        {% block main %}{% endblock %}
+    </main>
+    <footer class="footer bg-neutral text-neutral-content p-4 flex flex-col">
+        {% block footer %}{% endblock %}
+        <div class="menu menu-horizontal flex justify-between w-full">
+            <nav class="flex flex-col gap-y-1">
+                <h6 class="footer-title text-secondary">Полезные сайты</h6>
+                <a href="https://edu.lpr-reg.ru/" class="link link-hover">МОН ЛНР</a>
+                <a href="https://vk.com/locnttum" class="link link-hover">ГБУ ДО ЛНР "РЦРО "ИРР"</a>
+                <a href="https://rsr-olymp.ru/" class="link link-hover">Перечень РСОШ</a>
+            </nav>
+            <nav class="flex flex-col gap-y-1">
+                <h6 class="footer-title text-secondary">Документы</h6>
+                <a href="https://edu.lpr-reg.ru/" class="link link-hover">Локальные акты</a>
+                <a href="https://vk.com/locnttum" class="link link-hover">Отчет о достижениях</a>
+                <a href="https://rsr-olymp.ru/" class="link link-hover">Педсостав</a>
+            </nav>
+            <nav class="flex flex-col gap-y-1">
+                <h6 class="footer-title text-secondary">Партнерство</h6>
+                <a href="https://edu.lpr-reg.ru/" class="link link-hover">Как стать партнёром?</a>
+                <a href="https://vk.com/locnttum" class="link link-hover">Вакансии в Академии</a>
+                <a href="https://rsr-olymp.ru/" class="link link-hover">Бонусы для партнёров</a>
+            </nav>
+        </div>
+        <div class="w-full flex justify-between items-center">
+            <aside class="grid-flow-col items-center">
+                <p>© 2024 год, Научное объединение "Республиканская малая академия наук"</p>
+            </aside>
+            <nav class="grid-flow-col gap-x-10 md:place-self-center md:justify-self-end">
+                <a href="https://vk.com/no_rman" target="_blank" class="btn btn-circle"><img src="{% static 'images/vk.png' %}"></a>
+                <a href="https://t.me/no_rman_lpr" target="_blank" class="btn btn-circle"><img src="{% static 'images/telegram.png' %}"></a>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>
